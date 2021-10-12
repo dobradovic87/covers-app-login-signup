@@ -2,6 +2,8 @@
 
 Search for albums, create your account and add albums to your favourite list
 
+Visit https://album-covers.netlify.app/
+
 ![covers-home](https://user-images.githubusercontent.com/48182445/136948562-b23b7e0d-f6d7-4d02-a405-80bceb8809f0.png)
 
 ![covers-login](https://user-images.githubusercontent.com/48182445/136948607-7994ef3d-186b-435b-be69-f211878c53ae.png)

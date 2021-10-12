@@ -8,6 +8,7 @@ Search for albums, create your account and add albums to your favourite list
 
 ![covers-favourites](https://user-images.githubusercontent.com/48182445/136948699-a0c6c2d0-c952-4957-ad15-e8765638fa74.png)
 
+![cover-details-yt](https://user-images.githubusercontent.com/48182445/136951658-569d1004-5c76-4305-9473-94a382ad0090.png)
 
 
 # AlbumCovers

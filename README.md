@@ -1,3 +1,15 @@
+# Album Covers app - Angular and Firebase project
+
+Search for albums, create your account and add albums to your favourite list
+
+![covers-home](https://user-images.githubusercontent.com/48182445/136948562-b23b7e0d-f6d7-4d02-a405-80bceb8809f0.png)
+
+![covers-login](https://user-images.githubusercontent.com/48182445/136948607-7994ef3d-186b-435b-be69-f211878c53ae.png)
+
+![covers-favourites](https://user-images.githubusercontent.com/48182445/136948699-a0c6c2d0-c952-4957-ad15-e8765638fa74.png)
+
+
+
 # AlbumCovers
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.

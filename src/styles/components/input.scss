@@ -1,0 +1,79 @@
+@import "../global/variables.scss";
+
+.input {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid $color-input-border;
+  padding: 14px 10px;
+  width: 300px;
+  outline: none;
+  color: $color-dirty-white;
+  border-radius: 24px;
+  transition: 0.25s;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: $color-dirty-white;
+    -webkit-box-shadow: 0 0 0px 1000px inset;
+    box-shadow: 0 0 0px 1000px #0c0c0c inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  &--invalid {
+    border: 2px solid $color-red !important;
+  }
+
+  &:focus {
+    border-color: $color-green-hover;
+  }
+
+  &--search {
+    border: 1px solid $color-dirty-white;
+    border-radius: 24px;
+    width: 220px;
+    background: none;
+    outline: none;
+    position: relative;
+    padding: 5px 30px;
+    color: $color-dirty-white;
+  }
+
+  &--search-mobile {
+    border: 1px solid $color-dirty-white;
+    width: 100vw;
+    margin-top: -7px !important;
+    height: 50px;
+    background: $color-black;
+    outline: none;
+    margin: auto;
+    padding: 5px 30px;
+    color: $color-dirty-white;
+    font-size: 22px;
+  }
+
+  &--remove-mobile {
+    margin-right: -5px;
+  }
+
+  &--remove-icon {
+    position: absolute;
+    margin-left: 190px;
+
+    &:hover {
+      svg line,
+      svg path {
+        stroke: $color-green-hover;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .input {
+    width: 200px;
+  }
+}

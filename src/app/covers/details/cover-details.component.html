@@ -1,0 +1,118 @@
+<app-header *ngIf="!hasVideo || !isMobileVideo"></app-header>
+<div
+  id="home-bg"
+  [ngClass]="
+    !isMobileVideo
+      ? 'home-bg d-flex justify-content-center align-items-center'
+      : 'home-bg--mobile d-flex justify-content-center'
+  "
+>
+  <div *ngIf="isLoading">
+    <app-loading></app-loading>
+  </div>
+  <div *ngIf="!isMobileScreen && !isLoading" class="container">
+    <div>
+      <h2 class="pt-30 pb-30">{{ albumInfo.name }}</h2>
+      <div class="d-flex flex-direction-column justify-content-start">
+        <img
+          class="mr-50 pt-5"
+          [src]="albumInfo.image"
+          onerror="this.src='../assets/img/no-image-found.jpg';"
+          width="400"
+          height="400"
+          alt=""
+        />
+        <div class="ml-50">
+          <table>
+            <tr *ngFor="let track of albumInfo.tracks; let i = index">
+              <td
+                (click)="youTubeSearch(albumInfo.artist, track.name)"
+                [inlineSVG]="'/assets/player.svg'"
+                class="player pr-10"
+              ></td>
+              <td class="pr-5 pt-5">{{ i + 1 }}.</td>
+              <td class="">{{ track.name }}</td>
+            </tr>
+          </table>
+          <h4 *ngIf="arrayOfTracks.length === 0 && !isLoading">
+            *No tracks list available
+          </h4>
+        </div>
+      </div>
+
+      <div class="d-flex flex-direction-column justify-content-between pt-30">
+        <div class="wrap">
+          <p>{{ albumInfo.summary }}</p>
+        </div>
+
+        <div class="video" *ngIf="hasVideo">
+          <div
+            class="btn--close"
+            (click)="closeVideo()"
+            [inlineSVG]="'/assets/close.svg'"
+          ></div>
+          <iframe
+            width="320"
+            height="180"
+            [src]="videoUrl | safe"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isMobileScreen && !isLoading">
+    <div *ngIf="!hasVideo" class="flex">
+      <h3 class="pt-30 pb-30">{{ albumInfo.name }}</h3>
+      <img
+        class="pt-10 pb-30"
+        [src]="albumInfo.image"
+        onerror="this.src='../assets/img/no-image-found.jpg';"
+        width="250"
+        height="250"
+        alt=""
+      />
+      <table class="table">
+        <tr *ngFor="let track of albumInfo.tracks; let i = index">
+          <td
+            (click)="youTubeSearch(albumInfo.artist, track.name)"
+            [inlineSVG]="'/assets/player.svg'"
+            class="player pr-5"
+          ></td>
+          <td class="pt-5 pr-5">{{ i + 1 }}.</td>
+          <td class="">{{ track.name }}</td>
+        </tr>
+      </table>
+      <h4 *ngIf="arrayOfTracks.length === 0 && !isLoading">
+        *No tracks list available
+      </h4>
+      <div class="wrap pt-30">
+        <p>{{ albumInfo.summary }}</p>
+      </div>
+    </div>
+    <div *ngIf="hasVideo" class="mobile-video">
+      <div
+        style="
+          text-align: center;
+          margin-left: 93%;
+          margin-top: 20px;
+          margin-bottom: 10px;
+          width: 30px;
+        "
+        class="header__remove"
+        (click)="closeVideo()"
+        [inlineSVG]="'/assets/remove-icon.svg'"
+      ></div>
+      <iframe
+        class="iframe"
+        [src]="videoUrl | safe"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay"
+      ></iframe>
+    </div>
+  </div>
+</div>
+<app-footer *ngIf="!hasVideo || !isMobileVideo"></app-footer>

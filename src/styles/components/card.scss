@@ -1,0 +1,86 @@
+@import "../global/variables.scss";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px;
+  height: 370px;
+  margin: 10px;
+  border-radius: 10px;
+  background: $color-light-blue;
+
+  &__img {
+    height: 260px;
+    width: 220px;
+    margin-top: 10px;
+    border-radius: 7px;
+  }
+
+  &--form {
+    background: $color-black;
+    width: 400px;
+    padding: 40px;
+    background: $color-black;
+    text-align: center;
+    border-radius: 12px;
+  }
+
+  &__favourite {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+    stroke: $color-dirty-white;
+  }
+
+  &__favourite--added {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+    stroke: $color-red-hover;
+    path {
+      fill: $color-red-hover;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    &--form {
+      width: 280px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    &:hover {
+      transform: scale(1.07);
+      transition: all 0.3s ease-in-out;
+      z-index: 1;
+      box-shadow: 5px 5px 20px 0 black;
+      .card__title {
+        color: $color-green-hover;
+      }
+    }
+
+    &__favourite {
+      &:hover {
+        stroke: $color-green-hover;
+        path {
+          fill: $color-green-hover;
+        }
+      }
+    }
+
+    &__favourite--added {
+      &:hover {
+        stroke: $color-green-hover;
+        path {
+          fill: $color-green-hover;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+<app-header></app-header>
+<div class="form d-flex flex-column justify-content-center align-items-center">
+  <div *ngIf="isLoading">
+    <app-loading></app-loading>
+  </div>
+  <form
+    *ngIf="!isLoading"
+    [formGroup]="signupForm"
+    (ngSubmit)="onSubmit()"
+    class="
+      card--form
+      d-flex
+      justify-content-between
+      align-items-center
+      flex-column
+    "
+  >
+    <h2>Sign Up</h2>
+    <div class="mt-20 d-flex google">
+      <div class="icon" [inlineSVG]="'/assets/google.svg'"></div>
+      <h5 (click)="googleLogin()" class="pt-5 pl-10 pointer">
+        Login with Google
+      </h5>
+    </div>
+    <div class="position-relative d-flex flex-column align-items-center">
+      <input
+        class="input"
+        type="text"
+        name="email"
+        placeholder="Email"
+        formControlName="email"
+        [class.input--invalid]="
+          (signupForm.get('email')?.touched &&
+            signupForm?.get('email').hasError('required')) ||
+          (signupForm.get('email')?.dirty &&
+            signupForm?.get('email').hasError('required')) ||
+          (signupForm.get('email')?.dirty &&
+            signupForm?.get('email').hasError('email'))
+        "
+      />
+      <div
+        class="form__title--warning font-10"
+        *ngIf="
+          (signupForm.get('email')?.touched &&
+            signupForm?.get('email').hasError('required')) ||
+          (signupForm.get('email')?.dirty &&
+            signupForm?.get('email').hasError('required'))
+        "
+      >
+        Field is required
+      </div>
+      <div
+        class="form__title--warning font-10 absolute"
+        *ngIf="
+          signupForm.get('email')?.dirty &&
+          signupForm?.get('email').hasError('email')
+        "
+      >
+        Enter the correct email format
+      </div>
+    </div>
+    <div class="position-relative d-flex flex-column align-items-center">
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        formControlName="password"
+        class="input"
+        [class.input--invalid]="
+          (signupForm.get('password')?.touched &&
+            signupForm?.get('password').hasError('required')) ||
+          (signupForm.get('password')?.dirty &&
+            signupForm?.get('password').hasError('required')) ||
+          (signupForm.get('password')?.dirty &&
+            signupForm?.get('password').hasError('minlength'))
+        "
+      />
+      <div
+        class="form__title--warning font-10"
+        *ngIf="
+          (signupForm.get('password')?.touched &&
+            signupForm?.get('password').hasError('required')) ||
+          (signupForm.get('password')?.dirty &&
+            signupForm?.get('password').hasError('required'))
+        "
+      >
+        Field is required
+      </div>
+      <div
+        class="form__title--warning font-10"
+        *ngIf="
+          signupForm.get('password')?.dirty &&
+          signupForm?.get('password').hasError('minlength')
+        "
+      >
+        Enter a minimum of 6 characters
+      </div>
+    </div>
+    <div class="position-relative d-flex flex-column align-items-center">
+      <input
+        type="password"
+        name="passwordConfirm"
+        placeholder="Confirm password"
+        formControlName="passwordConfirm"
+        class="input"
+        [class.input--invalid]="
+          (signupForm.get('passwordConfirm')?.touched &&
+            signupForm.get('passwordConfirm')?.hasError('required')) ||
+          (signupForm.get('passwordConfirm')?.dirty &&
+            signupForm.get('passwordConfirm')?.hasError('required')) ||
+          (signupForm.get('passwordConfirm').dirty &&
+            signupForm.get('passwordConfirm').hasError('NoPasswordMatch'))
+        "
+      />
+      <div
+        class="form__title--warning font-10"
+        *ngIf="
+          (signupForm.get('passwordConfirm')?.touched &&
+            signupForm.get('passwordConfirm')?.hasError('required')) ||
+          (signupForm.get('passwordConfirm')?.dirty &&
+            signupForm.get('passwordConfirm')?.hasError('required'))
+        "
+      >
+        Required field
+      </div>
+      <div
+        class="form__title--warning font-10"
+        *ngIf="
+          signupForm.get('passwordConfirm').dirty &&
+          signupForm.get('passwordConfirm').hasError('NoPasswordMatch')
+        "
+      >
+        Passwords do not match
+      </div>
+    </div>
+    <button
+      [disabled]="!signupForm.valid"
+      [ngClass]="!signupForm.valid ? 'btn--disabled' : 'btn--submit'"
+      type="submit"
+      class="align-self-end"
+    >
+      Sign Up
+    </button>
+  </form>
+  <div *ngIf="!isLoading" class="form__link pt-10">
+    Already registered <a routerLink="/auth/signin">Log In</a>
+  </div>
+</div>
+<app-footer></app-footer>

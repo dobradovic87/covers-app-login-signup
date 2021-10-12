@@ -1,0 +1,30 @@
+@import "../global/variables.scss";
+
+.footer {
+  height: 70px;
+
+  &__email {
+    text-decoration: none;
+    color: $color-dirty-white;
+
+    &:hover {
+      color: $color-green-hover;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-red;
+
+    &:hover {
+      color: $color-red-hover;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}

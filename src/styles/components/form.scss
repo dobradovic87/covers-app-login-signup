@@ -1,0 +1,26 @@
+@import "../global/variables.scss";
+
+.form {
+  background: $color-form-bg;
+  height: calc(100vh - 70px);
+  padding-top: 60px;
+
+  &__title--warning {
+    font-size: 10px;
+    margin-top: 75px;
+    color: $color-red;
+    position: absolute;
+    text-align: center;
+  }
+
+  &__link {
+    color: $color-dirty-white;
+  }
+  a {
+    color: rgb(172, 172, 172);
+
+    &:hover {
+      color: $color-green-hover;
+    }
+  }
+}

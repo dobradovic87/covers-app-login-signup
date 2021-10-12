@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div
+  [ngClass]="
+    isLoading
+      ? 'home-bg d-flex justify-content-center align-items-center'
+      : 'home-bg d-flex justify-content-center'
+  "
+>
+  <div *ngIf="isLoading">
+    <app-loading></app-loading>
+  </div>
+  <div
+    *ngIf="!isMobileScreen && !isLoading && favouriteAlbums.length > 0"
+    class="container"
+  >
+    <h3 class="pt-30 pb-30">Favourite albums</h3>
+    <div class="d-flex pb-30 flex-wrap justify-content-center pb-40">
+      <div class="results" *ngFor="let album of favouriteAlbums">
+        <div class="card">
+          <img
+            class="card__img pointer"
+            (click)="goToDetails(album.artist, album.name)"
+            [src]="album.image"
+            onerror="this.src='../assets/img/no-image-found.jpg';"
+            alt="cover image"
+          />
+          <h5 class="card__title mr-10 ml-10 mt-15">{{ album.name }}</h5>
+          <h5 class="card__title mr-10 ml-10">{{ album.artist }}</h5>
+          <div
+            class="card__favourite--added pointer"
+            (click)="removeFromFavourites(album)"
+            [inlineSVG]="'/assets/favourite.svg'"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isMobileScreen && !isLoading && favouriteAlbums.length > 0">
+    <h3 class="pt-30 pb-30">Favourite albums</h3>
+    <div class="d-flex pl-20 pr-20 pb-30 flex-wrap justify-content-center">
+      <div class="results" *ngFor="let album of favouriteAlbums">
+        <div class="card">
+          <img
+            class="card__img pointer"
+            [src]="album.image"
+            onerror="this.src='../assets/img/no-image-found.jpg';"
+            alt="cover image"
+            (click)="goToDetails(album.artist, album.name)"
+          />
+          <h5 class="card__title mr-10 ml-10 mt-15">{{ album.name }}</h5>
+          <h5 class="card__title mr-10 ml-10 mb-5">{{ album.artist }}</h5>
+          <div
+            class="card__favourite--added pointer"
+            (click)="removeFromFavourites(album)"
+            [inlineSVG]="'/assets/favourite.svg'"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isLoading && favouriteAlbums.length === 0">
+    <h3 class="pt-30 pb-30">No favourite albums</h3>
+  </div>
+</div>
+<app-footer></app-footer>

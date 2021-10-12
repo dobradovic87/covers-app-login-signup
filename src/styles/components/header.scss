@@ -1,0 +1,83 @@
+@import "../global/variables.scss";
+
+.header-bg {
+  background: $color-black;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__item {
+    font-size: 20px;
+    color: $color-dirty-white;
+
+    &:hover {
+      color: $color-green-hover;
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: flex-end;
+
+    &:hover {
+      svg,
+      svg line,
+      svg path,
+      svg g {
+        stroke: $color-green-hover;
+      }
+    }
+  }
+
+  &__remove {
+    align-self: flex-end;
+  }
+
+  &__icon--fill {
+    margin-top: 3px;
+    svg line,
+    svg path {
+      fill: $color-dirty-white;
+    }
+
+    &:hover {
+      svg line,
+      svg path {
+        fill: $color-green-hover;
+      }
+    }
+  }
+
+  &__line {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+  }
+
+  &__mobile {
+    background: $color-black;
+    display: flex;
+    position: fixed;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+  }
+}

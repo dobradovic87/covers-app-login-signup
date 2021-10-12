@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="home-bg d-flex justify-content-center align-items-center">
+  <div *ngIf="isLoading">
+    <app-loading></app-loading>
+  </div>
+  <div *ngIf="!isMobileScreen && !isLoading" class="container">
+    <h2 class="pt-30">
+      Search for your favourite singers or bands and see their best albums
+    </h2>
+    <h3 class="p-30">Pop albums are shown by default</h3>
+    <div class="d-flex pb-30 flex-wrap justify-content-center pb-40">
+      <div class="results" *ngFor="let album of topAlbums">
+        <div class="card">
+          <img
+            class="card__img pointer"
+            (click)="goToDetails(album.artist, album.name)"
+            [src]="album.image"
+            onerror="this.src='../assets/img/no-image-found.jpg';"
+            alt="cover image"
+          />
+          <h5 class="card__title mr-10 ml-10 mt-15">{{ album.name }}</h5>
+          <h5 class="card__title mr-10 ml-10">{{ album.artist }}</h5>
+          <div
+            [ngClass]="
+              isLoggedIn && album.isInFavourites
+                ? 'card__favourite--added pointer'
+                : 'card__favourite pointer'
+            "
+            (click)="addToFavourites(album)"
+            [inlineSVG]="'/assets/favourite.svg'"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isMobileScreen && !isLoading">
+    <h3 class="pt-30 pl-30 pr-30 lh-25">
+      Search for your favourite singers or bands and see their best albums
+    </h3>
+    <h3 class="p-30">Pop albums are shown by default</h3>
+    <div class="d-flex pl-20 pr-20 pb-30 flex-wrap justify-content-center">
+      <div class="results" *ngFor="let album of topAlbums">
+        <div class="card">
+          <img
+            class="card__img pointer"
+            [src]="album.image"
+            onerror="this.src='../assets/img/no-image-found.jpg';"
+            alt="cover image"
+            (click)="goToDetails(album.artist, album.name)"
+          />
+          <h5 class="card__title mr-10 ml-10 mt-15">{{ album.name }}</h5>
+          <h5 class="card__title mr-10 ml-10 mb-5">{{ album.artist }}</h5>
+          <div
+            [ngClass]="
+              isLoggedIn && album.isInFavourites
+                ? 'card__favourite--added pointer'
+                : 'card__favourite pointer'
+            "
+            (click)="addToFavourites(album)"
+            [inlineSVG]="'/assets/favourite.svg'"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

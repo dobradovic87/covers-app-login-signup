@@ -1,0 +1,52 @@
+@import "../global/variables.scss";
+
+.btn {
+  &--submit {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid $color-btn-primary;
+    padding: 14px 40px;
+    outline: none;
+    color: $color-dirty-white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+
+    &:hover {
+      background: $color-green-hover;
+    }
+  }
+
+  &--disabled {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid $color-btn-primary;
+    padding: 14px 40px;
+    outline: none;
+    color: $color-dirty-white;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+
+  &--close {
+    margin-left: 317px;
+    margin-bottom: -5px;
+    cursor: pointer;
+
+    &:hover {
+      svg g path {
+        fill: red;
+      }
+    }
+  }
+}

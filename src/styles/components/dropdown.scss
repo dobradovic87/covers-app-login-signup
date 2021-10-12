@@ -1,0 +1,25 @@
+@import "../global/variables.scss";
+
+.dropdown {
+  width: 250px;
+  margin-top: 21px;
+  right: 10px;
+  position: absolute;
+  border-radius: 5px;
+  z-index: 1000;
+
+  &__item {
+    background: $color-dirty-white;
+    padding: 15px 20px;
+    text-align: center;
+
+    &:hover {
+      background: $color-green-hover;
+      color: white;
+    }
+  }
+
+  &__item--border {
+    border-bottom: 1px solid gray;
+  }
+}

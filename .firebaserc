@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "covers-search-94ab7": {
+      "hosting": {
+        "AlbumCovers": [
+          "covers-search-94ab7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "covers-search-94ab7"
+  }
+}
